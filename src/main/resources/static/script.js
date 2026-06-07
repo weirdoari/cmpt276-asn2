@@ -18,21 +18,36 @@ async function loadData() {
     const doc = parser.parseFromString(html, "text/html");
 
     const names = doc.querySelectorAll(".faculty-name");
+    const position = doc.querySelectorAll(".position");
+    const mail = doc.querySelectorAll(".faculty-profile-icon.email");
 
     const profiles = [];
 
-    names.forEach(name => {
-       profiles.push(new CreateProfile(name.textContent.trim()));
+    names.forEach((name, index) => {
+        profiles.push(
+            new CreateProfile(
+                name.textContent.trim(),
+                position[index].textContent.trim(),
+                mail[index].textContent.trim()
+            )
+        );
     });
 
+    console.log(html);
     console.log(profiles);
 }
 
 class CreateProfile {
-    constructor(name) {
+    constructor(name,position,mail) {
+        this.id = 0;
         this.name = name;
         this.imgLink = "https://www.sfu.ca/content/sfu/fas/computing/people/faculty/faculty-members/"+nameLinkified(name)+".img.png"
-        this.rating = 0;
+        this.roleType = position;
+        this.mail = mail;
+        this.clarity = 0;
+        this.niceness = 0;
+        this.knowledgeableScore = 0;
+        //this.createdAt = timestamp
     }
 }
 
