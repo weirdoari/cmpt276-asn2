@@ -10,14 +10,47 @@ public class Users {
     private int niceness;
     private int knowledgeableScore;
     public Users() {}
-    public Users(String id, String name, String imgLink, String roleType, String mail, int clarity, int niceness, int knowledgeableScore) {
+    
+    public Users(String id, String name, String imgLink, String roleType, String mail) {
         this.id = id;
         this.name = name;
         this.imgLink = imgLink;
         this.roleType = roleType;
         this.mail = mail;
-        this.clarity = clarity;
-        this.niceness = niceness;
-        this.knowledgeableScore = knowledgeableScore;
+        this.clarity = 0;
+        this.niceness = 0;
+        this.knowledgeableScore = 0;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImgLink() {
+        return imgLink;
+    }
+
+    public String getRoleType() {
+        return roleType;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public int getClarity() {
+        return clarity;
+    }
+
+    public int getNiceness() {
+        return niceness;
+    }
+
+    public int getKnowledgeableScore() {
+        return knowledgeableScore;
     }
 }
