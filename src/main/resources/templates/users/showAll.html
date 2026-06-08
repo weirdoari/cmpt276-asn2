@@ -13,6 +13,10 @@
                 <h1>All Users</h1>
                 <ul>
                     <li th:each="user : ${users}">
+                        <img th:if="${user.imgLink != ''}"
+                             th:src="${user.imgLink}"
+                             th:alt="${user.name}"
+                             style="width:80px; height:80px; object-fit:cover; margin-right:8px; display:inline-block; vertical-align:middle;" />
                         <strong th:text="${user.name}">User Name</strong><br/>
                         <span th:switch="${#strings.contains(user.mail, '@')}">
                             <span th:case="true" th:text="${user.mail}">email</span>

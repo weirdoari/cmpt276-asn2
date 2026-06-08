@@ -42,6 +42,7 @@ public class FetchUsers {
                     mail = mails.get(i).attr("href").replace("mailto:", "").trim();
                 }
 
+                //System.out.println("Fetched user: " + name + ", " + position + ", " + mail + " image link: " + "https://www.sfu.ca/content/sfu/fas/computing/people/faculty/faculty-members/" + nameLinkified(name) + ".img.png");
                 String imgLink = "https://www.sfu.ca/content/sfu/fas/computing/people/faculty/faculty-members/" + nameLinkified(name) + ".img.png";
 
                 profiles.add(new Users(
