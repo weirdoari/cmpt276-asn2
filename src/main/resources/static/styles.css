@@ -23,14 +23,45 @@
     align-items: center;
 }
 
+.user-avatar-wrap {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin-right: 8px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    flex: 0 0 90px;
+}
+
+.user-avatar-wrap.loading .user-avatar-loading {
+    opacity: 1;
+}
+
+.user-avatar-wrap.loaded .user-avatar-loading {
+    opacity: 0;
+}
+
+.user-avatar-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e9ecef;
+    color: #555;
+    font-size: 0.72rem;
+    text-align: center;
+    padding: 0.5rem;
+    transition: opacity 0.2s ease;
+}
+
 .user-avatar {
-width:90px; 
-border-radius: 50%; 
-height:90px; 
-object-fit:cover; 
-margin-right:8px; 
-display:inline-block; 
-vertical-align:middle; 
-margin-bottom: 15px; 
-margin-left: 5px;
+    width: 90px;
+    border-radius: 50%;
+    height: 90px;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
 }
