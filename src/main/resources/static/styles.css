@@ -49,6 +49,10 @@ strong {
 
 .container-fluid {
     background-color: #f1f1f1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .users-grid {
@@ -63,6 +67,9 @@ strong {
     padding: 20px;
     border-radius: 5px;
     background-color: #f9f9f9;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* .user-ratings {
@@ -77,13 +84,12 @@ strong {
     padding: 20px;
     border-radius: 5px;
     background-color: #f9f9f9b5;
+    min-width: 350px;
 }
 
 .btn-primary {
     margin-top: 10px;
-    float: right;
 }
-
 
 .user-info-container {
     display: flex;
@@ -93,6 +99,10 @@ strong {
 .user-ratings {
     margin-top: 10px;
     margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-left: 10px;
 }
 
 .user-avatar-wrap {

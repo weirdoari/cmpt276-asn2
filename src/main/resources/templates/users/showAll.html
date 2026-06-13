@@ -36,20 +36,28 @@
 
                 
                 <div class="user-ratings">
-                    <strong th:text="${user.knowledgeableScore == 0} ? 'Knowledgeable: Not rated' : 'Knowledgeable: ' + user.knowledgeableScore">0</strong><br>
-                    <strong th:text="${user.niceness == 0} ? 'Niceness: Not rated' : 'Niceness: ' + user.niceness">0</strong><br>
-                    <strong th:text="${user.clarity == 0} ? 'Clarity: Not rated' : 'Clarity: ' + user.clarity">0</strong><br>
+                    <strong th:text="${user.knowledgeableScore == 0} ? 'Knowledge: N/A' : 'Knowledgeable: ' + user.knowledgeableScore">0</strong>
+                    <strong th:text="${user.niceness == 0} ? 'Niceness: N/A' : 'Niceness: ' + user.niceness">0</strong>
+                    <strong th:text="${user.clarity == 0} ? 'Clarity: N/A' : 'Clarity: ' + user.clarity">0</strong>
                 </div>  
                 
                 <div class="comments-box" style="height: 100px; overflow-y: auto;">
                     <strong>Student Comments:</strong>
-                    <div class="comments" th:each="comment : ${user.comments}">
-                        <p th:text="${comment}">No comments yet.</p>
+                    
+                    <div th:if="${#lists.isEmpty(comments)}">
+                        <p>No comments yet.</p>
+                    </div>
+
+
+                    <div th:each="comment : ${comments}">
+                        <p th:if="${comment.userId == user.uid}"
+                        th:text="${comment.text}">
+                        </p>
                     </div>
                     
                 </div>
 
-                <button class="btn btn-primary">Rate</button>
+                <button class="btn btn-primary">Rate This Staff</button>
             </div>
         </div>
 

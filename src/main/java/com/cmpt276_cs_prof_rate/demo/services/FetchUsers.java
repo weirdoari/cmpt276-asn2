@@ -135,7 +135,6 @@ public class FetchUsers {
                 }
 
                 profiles.add(new Users(
-                        String.valueOf(i + 1),
                         name,
                         imgLink,
                         position,
