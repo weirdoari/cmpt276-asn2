@@ -13,15 +13,17 @@
     <main class = "container-fluid">
 
         <h1>SFU School of Computing Science Faculty</h1>
-        <h3>Rate Staff:</h3>
+        <h3>Staff Ratings:</h3>
 
         <div class="users-grid">    
             <div th:each="user : ${users}" class="user-card">
-                <div th:if="${user.imgLink != ''}" class="user-avatar-wrap loading">
-                    <div class="user-avatar-loading">Loading image...</div>
-                    <img th:src="${user.imgLink}" th:alt="${user.name}" class="user-avatar" onload="this.parentElement.classList.remove('loading'); this.parentElement.classList.add('loaded');" onerror="this.parentElement.classList.remove('loading'); this.parentElement.classList.add('loaded');"/>
-                </div>
+
                 <div class="user-info-container">
+                    <div th:if="${user.imgLink != ''}" class="user-avatar-wrap loading">
+                        <div class="user-avatar-loading">Loading image...</div>
+                        <img th:src="${user.imgLink}" th:alt="${user.name}" class="user-avatar" onload="this.parentElement.classList.remove('loading'); this.parentElement.classList.add('loaded');" onerror="this.parentElement.classList.remove('loading'); this.parentElement.classList.add('loaded');"/>
+                    </div>
+                
                     <div class="user-info">
                         <strong th:text="${user.name}">User Name</strong><br/>
                         <span th:switch="${#strings.contains(user.mail, '@')}">
@@ -30,11 +32,23 @@
                         </span> <br>
                         <span th:text="${user.roleType}">role</span>
                     </div>
+                </div>
+
+                <div class="rating-container">
                     <div class="user-ratings">
-                        <span th:text="${user.knowledgeableScore}">0</span>
-                        <span th:text="${user.niceness}">0</span>
-                        <span th:text="${user.clarity}">0</span>
+                        <span th:text="'Knowledgeable: ' + ${user.knowledgeableScore}">0</span> <br>
+                        <span th:text="'Niceness: ' + ${user.niceness}">0</span><br>
+                        <span th:text="'Clarity: ' + ${user.clarity}">0</span><br>
                     </div>
+
+                    <button class="btn btn-primary">Rate</button>
+                </div>
+                <div class="comments-box" style="height: 100px; overflow-y: auto;">
+                    <strong>Student Comments:</strong>
+                    <div class="comments" th:each="comment : ${user.comments}">
+                        <p th:text="${comment}">No comments yet.</p>
+                    </div>
+                    
                 </div>
             </div>
         </div>

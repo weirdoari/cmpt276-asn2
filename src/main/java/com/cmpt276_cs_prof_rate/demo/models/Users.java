@@ -1,5 +1,7 @@
 package com.cmpt276_cs_prof_rate.demo.models;
 
+import java.util.ArrayList;
+
 public class Users {
     private String id;
     private String name;
@@ -9,6 +11,8 @@ public class Users {
     private int clarity; 
     private int niceness;
     private int knowledgeableScore;
+    private ArrayList<String> comments;
+
     public Users() {}
     
     public Users(String id, String name, String imgLink, String roleType, String mail) {
@@ -20,6 +24,8 @@ public class Users {
         this.clarity = 0;
         this.niceness = 0;
         this.knowledgeableScore = 0;
+        this.comments = new ArrayList<>();
+        this.comments.add("No comments yet.");
     }
 
     public String getId() {
@@ -52,5 +58,9 @@ public class Users {
 
     public int getKnowledgeableScore() {
         return knowledgeableScore;
+    }
+
+    public ArrayList<String> getComments() {
+        return comments;
     }
 }
