@@ -34,15 +34,13 @@
                     </div>
                 </div>
 
-                <div class="rating-container">
-                    <div class="user-ratings">
-                        <span th:text="'Knowledgeable: ' + ${user.knowledgeableScore}">0</span> <br>
-                        <span th:text="'Niceness: ' + ${user.niceness}">0</span><br>
-                        <span th:text="'Clarity: ' + ${user.clarity}">0</span><br>
-                    </div>
-
-                    <button class="btn btn-primary">Rate</button>
-                </div>
+                
+                <div class="user-ratings">
+                    <strong th:text="${user.knowledgeableScore == 0} ? 'Knowledgeable: Not rated' : 'Knowledgeable: ' + user.knowledgeableScore">0</strong><br>
+                    <strong th:text="${user.niceness == 0} ? 'Niceness: Not rated' : 'Niceness: ' + user.niceness">0</strong><br>
+                    <strong th:text="${user.clarity == 0} ? 'Clarity: Not rated' : 'Clarity: ' + user.clarity">0</strong><br>
+                </div>  
+                
                 <div class="comments-box" style="height: 100px; overflow-y: auto;">
                     <strong>Student Comments:</strong>
                     <div class="comments" th:each="comment : ${user.comments}">
@@ -50,6 +48,8 @@
                     </div>
                     
                 </div>
+
+                <button class="btn btn-primary">Rate</button>
             </div>
         </div>
 

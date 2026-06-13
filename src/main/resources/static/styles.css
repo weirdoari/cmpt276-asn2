@@ -72,16 +72,27 @@ strong {
     gap: 50px;
 } */
 
+.comments-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9b5;
+}
+
+.btn-primary {
+    margin-top: 10px;
+    float: right;
+}
+
+
 .user-info-container {
     display: flex;
     align-items: center;
 }
 
-.rating-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.user-ratings {
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .user-avatar-wrap {
